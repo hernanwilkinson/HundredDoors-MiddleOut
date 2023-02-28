@@ -29,4 +29,15 @@ public class HundredDoorsTest {
 
         assertTrue(doorsFlipper.isClosed(0));
     }
+
+    @Test
+    public void canFlipMoreThanOneDoorByAStep() {
+        var doorsFlipper = new DoorsFlipper(4);
+        doorsFlipper.flipEvery(2);
+
+        assertTrue(doorsFlipper.isClosed(0));
+        assertFalse(doorsFlipper.isClosed(1));
+        assertTrue(doorsFlipper.isClosed(2));
+        assertFalse(doorsFlipper.isClosed(3));
+    }
 }
