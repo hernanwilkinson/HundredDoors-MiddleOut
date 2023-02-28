@@ -1,8 +1,8 @@
 public class DoorsFlipper {
     private boolean doors[];
 
-    public DoorsFlipper(int i) {
-        doors = new boolean[i];
+    public DoorsFlipper(int numberOfDoors) {
+        doors = new boolean[numberOfDoors];
         for (int j = 0; j < doors.length; j++)
             doors[j] = false;
     }
