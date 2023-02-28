@@ -22,6 +22,8 @@ public class DoorsFlipper {
     }
 
     public boolean isClosed(int doorPosition) {
+        if(doorPosition<0) throw new RuntimeException(INVALID_DOOR_POSITION);
+
         return !doors[doorPosition];
     }
 
