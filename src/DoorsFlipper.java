@@ -3,6 +3,10 @@ public class DoorsFlipper {
 
     public DoorsFlipper(int numberOfDoors) {
         doors = new boolean[numberOfDoors];
+        closeAllDoors();
+    }
+
+    private void closeAllDoors() {
         for (int doorPosition = 0; doorPosition < doors.length; doorPosition++)
             doors[doorPosition] = false;
     }
