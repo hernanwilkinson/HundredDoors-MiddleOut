@@ -16,7 +16,7 @@ public class DoorsFlipper {
     }
 
     public void flipEvery(int step) {
-        for (int j = step-1; j < doors.length ; j+=step)
-            doors[j] = !doors[j];
+        for (int doorPosition = step-1; doorPosition < doors.length ; doorPosition+=step)
+            doors[doorPosition] = !doors[doorPosition];
     }
 }
