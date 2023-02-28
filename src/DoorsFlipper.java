@@ -1,4 +1,5 @@
 public class DoorsFlipper {
+    public static final String INVALID_NUMBER_OF_DOORS = "Number of doors must be strictly positive";
     private boolean doors[];
 
     public DoorsFlipper(int numberOfDoors) {

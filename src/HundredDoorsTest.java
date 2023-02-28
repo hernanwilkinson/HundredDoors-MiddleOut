@@ -40,4 +40,12 @@ public class HundredDoorsTest {
         assertTrue(doorsFlipper.isClosed(2));
         assertFalse(doorsFlipper.isClosed(3));
     }
+
+    @Test
+    public void numberOfDoorsMustBeStrictlyPositive() {
+        assertThrows(
+                RuntimeException.class,
+                ()->new DoorsFlipper(0),
+                DoorsFlipper.INVALID_NUMBER_OF_DOORS);
+    }
 }
