@@ -2,15 +2,17 @@ public class DoorsFlipper {
     private boolean doors[];
 
     public DoorsFlipper(int i) {
-        doors = new boolean[1];
-        doors[0] = false;
+        doors = new boolean[i];
+        for (int j = 0; j < doors.length; j++)
+            doors[j] = false;
     }
 
     public boolean isClosed(int i) {
-        return !doors[0];
+        return !doors[i];
     }
 
     public void flipEvery(int i) {
-        doors[0] = !doors[0];
+        for (int j = i-1; j < doors.length ; j+=i)
+            doors[j] = !doors[j];
     }
 }
