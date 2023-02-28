@@ -82,4 +82,15 @@ public class HundredDoorsTest {
         assertEquals(DoorsFlipper.INVALID_DOOR_POSITION,exception.getMessage());
         assertTrue(doorsFlipper.isClosed(0));
     }
+
+    @Test
+    public void doorPositionMustLessThanNumberOfDoors() {
+        var doorsFlipper = new DoorsFlipper(1);
+
+        var exception = assertThrows(
+                RuntimeException.class,
+                ()->doorsFlipper.isClosed(1));
+        assertEquals(DoorsFlipper.INVALID_DOOR_POSITION,exception.getMessage());
+        assertTrue(doorsFlipper.isClosed(0));
+    }
 }
