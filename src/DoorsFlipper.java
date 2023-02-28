@@ -11,8 +11,8 @@ public class DoorsFlipper {
             doors[doorPosition] = false;
     }
 
-    public boolean isClosed(int i) {
-        return !doors[i];
+    public boolean isClosed(int doorPosition) {
+        return !doors[doorPosition];
     }
 
     public void flipEvery(int i) {
