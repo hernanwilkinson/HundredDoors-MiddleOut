@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Supplier;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -43,10 +44,10 @@ public class HundredDoorsTest {
 
     @Test
     public void numberOfDoorsMustBeStrictlyPositive() {
-        assertThrows(
+        var exception = assertThrows(
                 RuntimeException.class,
-                ()->new DoorsFlipper(0),
-                DoorsFlipper.INVALID_NUMBER_OF_DOORS);
+                ()->new DoorsFlipper(0));
+        assertEquals(DoorsFlipper.INVALID_NUMBER_OF_DOORS,exception.getMessage());
     }
 
     @Test
