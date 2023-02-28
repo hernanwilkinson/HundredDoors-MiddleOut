@@ -12,4 +12,12 @@ public class HundredDoorsTest {
 
         assertTrue(doorsFlipper.isClosed(0));
     }
+
+    @Test
+    public void doorCanBeFlipped() {
+        var doorsFlipper = new DoorsFlipper(1);
+        doorsFlipper.flipEvery(1);
+
+        assertFalse(doorsFlipper.isClosed(0));
+    }
 }
