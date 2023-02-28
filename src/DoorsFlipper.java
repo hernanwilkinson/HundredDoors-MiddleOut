@@ -25,6 +25,8 @@ public class DoorsFlipper {
     }
 
     public void flipEvery(int step) {
+        if (step<1) throw new RuntimeException(INVALID_FLIP_STEP);
+
         for (int doorPosition = step-1; doorPosition < doors.length ; doorPosition+=step)
             doors[doorPosition] = !doors[doorPosition];
     }
