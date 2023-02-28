@@ -14,7 +14,7 @@ public class HundredDoorsTest {
     }
 
     @Test
-    public void doorCanBeFlipped() {
+    public void doorEndsOpenWhenFlippingFromClosed() {
         var doorsFlipper = new DoorsFlipper(1);
         doorsFlipper.flipEvery(1);
 
