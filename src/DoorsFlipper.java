@@ -3,8 +3,8 @@ public class DoorsFlipper {
 
     public DoorsFlipper(int numberOfDoors) {
         doors = new boolean[numberOfDoors];
-        for (int j = 0; j < doors.length; j++)
-            doors[j] = false;
+        for (int doorPosition = 0; doorPosition < doors.length; doorPosition++)
+            doors[doorPosition] = false;
     }
 
     public boolean isClosed(int i) {
