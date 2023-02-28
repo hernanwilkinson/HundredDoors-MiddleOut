@@ -11,6 +11,6 @@ public class DoorsFlipper {
     }
 
     public void flipEvery(int i) {
-        doors[0] = true;
+        doors[0] = !doors[0];
     }
 }
