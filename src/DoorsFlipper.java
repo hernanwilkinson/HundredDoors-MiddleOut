@@ -3,6 +3,8 @@ public class DoorsFlipper {
     private boolean doors[];
 
     public DoorsFlipper(int numberOfDoors) {
+        if (numberOfDoors<1) throw new RuntimeException(INVALID_NUMBER_OF_DOORS);
+
         doors = new boolean[numberOfDoors];
         closeAllDoors();
     }
