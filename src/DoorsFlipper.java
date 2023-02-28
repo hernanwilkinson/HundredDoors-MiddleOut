@@ -22,9 +22,13 @@ public class DoorsFlipper {
     }
 
     public boolean isClosed(int doorPosition) {
-        if(doorPosition<0 || doorPosition>=doors.length) throw new RuntimeException(INVALID_DOOR_POSITION);
+        assertValidDoorPosition(doorPosition);
 
         return !doors[doorPosition];
+    }
+
+    private void assertValidDoorPosition(int doorPosition) {
+        if(doorPosition <0 || doorPosition >=doors.length) throw new RuntimeException(INVALID_DOOR_POSITION);
     }
 
     public void flipEvery(int step) {
