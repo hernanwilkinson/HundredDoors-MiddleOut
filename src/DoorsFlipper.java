@@ -43,6 +43,7 @@ public class DoorsFlipper {
     }
 
     public void flipAll() {
-        throw new RuntimeException();
+        for (int step = 1; step <= doors.length; step++)
+            flipEvery(step);
     }
 }
