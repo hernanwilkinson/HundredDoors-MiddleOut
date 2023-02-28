@@ -104,4 +104,14 @@ public class HundredDoorsTest {
         assertTrue(doorsFlipper.isClosed(2));
         assertFalse(doorsFlipper.isClosed(3));
     }
+
+    @Test
+    public void flipsCorrectlyForHundredDoors() {
+        var doorsFlipper = new DoorsFlipper(100);
+        doorsFlipper.flipAll();
+
+        final List<Integer> opened = Arrays.asList(1, 4, 9, 16, 25, 36, 49, 64, 81, 100);
+        for (int doorPosition = 0; doorPosition < 100; doorPosition++)
+            assertEquals(!opened.contains(doorPosition+1),doorsFlipper.isClosed(doorPosition));
+    }
 }
