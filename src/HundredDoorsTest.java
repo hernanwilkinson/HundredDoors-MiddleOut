@@ -93,4 +93,15 @@ public class HundredDoorsTest {
         assertEquals(DoorsFlipper.INVALID_DOOR_POSITION,exception.getMessage());
         assertTrue(doorsFlipper.isClosed(0));
     }
+
+    @Test
+    public void canFlipAllDoorsByStep() {
+        var doorsFlipper = new DoorsFlipper(4);
+        doorsFlipper.flipAll();
+
+        assertFalse(doorsFlipper.isClosed(0));
+        assertTrue(doorsFlipper.isClosed(1));
+        assertTrue(doorsFlipper.isClosed(2));
+        assertFalse(doorsFlipper.isClosed(3));
+    }
 }

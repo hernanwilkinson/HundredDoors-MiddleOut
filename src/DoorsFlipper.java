@@ -41,4 +41,8 @@ public class DoorsFlipper {
     private void assertValidStep(int step) {
         if (step < 1 || step > doors.length) throw new RuntimeException(INVALID_FLIP_STEP);
     }
+
+    public void flipAll() {
+        throw new RuntimeException();
+    }
 }
