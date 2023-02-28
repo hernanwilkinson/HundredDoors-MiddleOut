@@ -20,4 +20,13 @@ public class HundredDoorsTest {
 
         assertFalse(doorsFlipper.isClosed(0));
     }
+
+    @Test
+    public void doorEndsClosedWhenFlippingFromOpened() {
+        var doorsFlipper = new DoorsFlipper(1);
+        doorsFlipper.flipEvery(1);
+        doorsFlipper.flipEvery(1);
+
+        assertTrue(doorsFlipper.isClosed(0));
+    }
 }
