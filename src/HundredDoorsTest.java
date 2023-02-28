@@ -78,7 +78,7 @@ public class HundredDoorsTest {
 
         var exception = assertThrows(
                 RuntimeException.class,
-                ()->doorsFlipper.flipEvery(-1));
+                ()->doorsFlipper.isClosed(-1));
         assertEquals(DoorsFlipper.INVALID_DOOR_POSITION,exception.getMessage());
         assertTrue(doorsFlipper.isClosed(0));
     }
