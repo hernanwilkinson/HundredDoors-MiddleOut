@@ -45,7 +45,7 @@ public class HundredDoorsTest {
     @Test
     public void numberOfDoorsMustBeStrictlyPositive() {
         var exception = assertThrows(
-                RuntimeException.class,
+                IllegalArgumentException.class,
                 ()->new DoorsFlipper(0));
         assertEquals(DoorsFlipper.INVALID_NUMBER_OF_DOORS,exception.getMessage());
     }
@@ -55,7 +55,7 @@ public class HundredDoorsTest {
         var doorsFlipper = new DoorsFlipper(1);
 
         var exception = assertThrows(
-                RuntimeException.class,
+                IllegalArgumentException.class,
                 ()->doorsFlipper.flipEvery(0));
         assertEquals(DoorsFlipper.INVALID_FLIP_STEP,exception.getMessage());
         assertTrue(doorsFlipper.isClosed(0));
@@ -66,7 +66,7 @@ public class HundredDoorsTest {
         var doorsFlipper = new DoorsFlipper(1);
 
         var exception = assertThrows(
-                RuntimeException.class,
+                IllegalArgumentException.class,
                 ()->doorsFlipper.flipEvery(2));
         assertEquals(DoorsFlipper.INVALID_FLIP_STEP,exception.getMessage());
         assertTrue(doorsFlipper.isClosed(0));
@@ -77,7 +77,7 @@ public class HundredDoorsTest {
         var doorsFlipper = new DoorsFlipper(1);
 
         var exception = assertThrows(
-                RuntimeException.class,
+                IllegalArgumentException.class,
                 ()->doorsFlipper.isClosed(-1));
         assertEquals(DoorsFlipper.INVALID_DOOR_POSITION,exception.getMessage());
         assertTrue(doorsFlipper.isClosed(0));
@@ -88,7 +88,7 @@ public class HundredDoorsTest {
         var doorsFlipper = new DoorsFlipper(1);
 
         var exception = assertThrows(
-                RuntimeException.class,
+                IllegalArgumentException.class,
                 ()->doorsFlipper.isClosed(1));
         assertEquals(DoorsFlipper.INVALID_DOOR_POSITION,exception.getMessage());
         assertTrue(doorsFlipper.isClosed(0));

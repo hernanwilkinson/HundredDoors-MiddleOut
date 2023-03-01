@@ -13,7 +13,7 @@ public class DoorsFlipper {
     }
 
     private void assertValidNumberOfDoors(int numberOfDoors) {
-        if (numberOfDoors < 1) throw new RuntimeException(INVALID_NUMBER_OF_DOORS);
+        if (numberOfDoors < 1) throw new IllegalArgumentException(INVALID_NUMBER_OF_DOORS);
     }
 
     private void closeAllDoors() {
@@ -28,7 +28,7 @@ public class DoorsFlipper {
     }
 
     private void assertValidDoorPosition(int doorPosition) {
-        if(doorPosition <0 || doorPosition >=doors.length) throw new RuntimeException(INVALID_DOOR_POSITION);
+        if(doorPosition <0 || doorPosition >=doors.length) throw new IllegalArgumentException(INVALID_DOOR_POSITION);
     }
 
     public void flipEvery(int step) {
@@ -39,7 +39,7 @@ public class DoorsFlipper {
     }
 
     private void assertValidStep(int step) {
-        if (step < 1 || step > doors.length) throw new RuntimeException(INVALID_FLIP_STEP);
+        if (step < 1 || step > doors.length) throw new IllegalArgumentException(INVALID_FLIP_STEP);
     }
 
     public void flipAll() {
