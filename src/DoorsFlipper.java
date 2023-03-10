@@ -35,7 +35,11 @@ public class DoorsFlipper {
         assertValidStep(step);
 
         for (int doorPosition = step-1; doorPosition < doors.length ; doorPosition+=step)
-            doors[doorPosition] = !doors[doorPosition];
+            flipAt(doorPosition);
+    }
+
+    private void flipAt(int doorPosition) {
+        doors[doorPosition] = !doors[doorPosition];
     }
 
     private void assertValidStep(int step) {
