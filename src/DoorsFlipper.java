@@ -17,29 +17,29 @@ public class DoorsFlipper {
     }
 
     private void closeAllDoors() {
-        for (int doorPosition = 0; doorPosition < doors.length; doorPosition++)
-            doors[doorPosition] = false;
+        for (int doorIndex = 0; doorIndex < doors.length; doorIndex++)
+            doors[doorIndex] = false;
     }
 
     public boolean isClosed(int doorPosition) {
         assertValidDoorPosition(doorPosition);
 
-        return !doors[doorPosition];
+        return !doors[doorPosition-1];
     }
 
     private void assertValidDoorPosition(int doorPosition) {
-        if(doorPosition <0 || doorPosition >=doors.length) throw new IllegalArgumentException(INVALID_DOOR_POSITION);
+        if(doorPosition < 1 || doorPosition > doors.length) throw new IllegalArgumentException(INVALID_DOOR_POSITION);
     }
 
     public void flipEvery(int step) {
         assertValidStep(step);
 
-        for (int doorPosition = step-1; doorPosition < doors.length ; doorPosition+=step)
-            flipAt(doorPosition);
+        for (int doorIndex = step-1; doorIndex < doors.length ; doorIndex+=step)
+            flipAt(doorIndex);
     }
 
-    private void flipAt(int doorPosition) {
-        doors[doorPosition] = !doors[doorPosition];
+    private void flipAt(int doorIndex) {
+        doors[doorIndex] = !doors[doorIndex];
     }
 
     private void assertValidStep(int step) {

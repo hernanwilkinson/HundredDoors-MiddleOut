@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Supplier;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,7 +10,7 @@ public class HundredDoorsTest {
     public void doorsStartClosed() {
         var doorsFlipper = new DoorsFlipper(1);
 
-        assertTrue(doorsFlipper.isClosed(0));
+        assertTrue(doorsFlipper.isClosed(1));
     }
 
     @Test
@@ -19,7 +18,7 @@ public class HundredDoorsTest {
         var doorsFlipper = new DoorsFlipper(1);
         doorsFlipper.flipEvery(1);
 
-        assertFalse(doorsFlipper.isClosed(0));
+        assertFalse(doorsFlipper.isClosed(1));
     }
 
     @Test
@@ -28,7 +27,7 @@ public class HundredDoorsTest {
         doorsFlipper.flipEvery(1);
         doorsFlipper.flipEvery(1);
 
-        assertTrue(doorsFlipper.isClosed(0));
+        assertTrue(doorsFlipper.isClosed(1));
     }
 
     @Test
@@ -36,10 +35,10 @@ public class HundredDoorsTest {
         var doorsFlipper = new DoorsFlipper(4);
         doorsFlipper.flipEvery(2);
 
-        assertTrue(doorsFlipper.isClosed(0));
-        assertFalse(doorsFlipper.isClosed(1));
-        assertTrue(doorsFlipper.isClosed(2));
-        assertFalse(doorsFlipper.isClosed(3));
+        assertTrue(doorsFlipper.isClosed(1));
+        assertFalse(doorsFlipper.isClosed(2));
+        assertTrue(doorsFlipper.isClosed(3));
+        assertFalse(doorsFlipper.isClosed(4));
     }
 
     @Test
@@ -58,7 +57,7 @@ public class HundredDoorsTest {
                 IllegalArgumentException.class,
                 ()->doorsFlipper.flipEvery(0));
         assertEquals(DoorsFlipper.INVALID_FLIP_STEP,exception.getMessage());
-        assertTrue(doorsFlipper.isClosed(0));
+        assertTrue(doorsFlipper.isClosed(1));
     }
 
     @Test
@@ -69,7 +68,7 @@ public class HundredDoorsTest {
                 IllegalArgumentException.class,
                 ()->doorsFlipper.flipEvery(2));
         assertEquals(DoorsFlipper.INVALID_FLIP_STEP,exception.getMessage());
-        assertTrue(doorsFlipper.isClosed(0));
+        assertTrue(doorsFlipper.isClosed(1));
     }
 
     @Test
@@ -78,20 +77,20 @@ public class HundredDoorsTest {
 
         var exception = assertThrows(
                 IllegalArgumentException.class,
-                ()->doorsFlipper.isClosed(-1));
+                ()->doorsFlipper.isClosed(0));
         assertEquals(DoorsFlipper.INVALID_DOOR_POSITION,exception.getMessage());
-        assertTrue(doorsFlipper.isClosed(0));
+        assertTrue(doorsFlipper.isClosed(1));
     }
 
     @Test
-    public void doorPositionMustLessThanNumberOfDoors() {
+    public void doorPositionMustLessOrEqualToNumberOfDoors() {
         var doorsFlipper = new DoorsFlipper(1);
 
         var exception = assertThrows(
                 IllegalArgumentException.class,
-                ()->doorsFlipper.isClosed(1));
+                ()->doorsFlipper.isClosed(2));
         assertEquals(DoorsFlipper.INVALID_DOOR_POSITION,exception.getMessage());
-        assertTrue(doorsFlipper.isClosed(0));
+        assertTrue(doorsFlipper.isClosed(1));
     }
 
     @Test
@@ -99,10 +98,10 @@ public class HundredDoorsTest {
         var doorsFlipper = new DoorsFlipper(4);
         doorsFlipper.flipAll();
 
-        assertFalse(doorsFlipper.isClosed(0));
-        assertTrue(doorsFlipper.isClosed(1));
+        assertFalse(doorsFlipper.isClosed(1));
         assertTrue(doorsFlipper.isClosed(2));
-        assertFalse(doorsFlipper.isClosed(3));
+        assertTrue(doorsFlipper.isClosed(3));
+        assertFalse(doorsFlipper.isClosed(4));
     }
 
     @Test
@@ -111,7 +110,7 @@ public class HundredDoorsTest {
         doorsFlipper.flipAll();
 
         final List<Integer> opened = Arrays.asList(1, 4, 9, 16, 25, 36, 49, 64, 81, 100);
-        for (int doorPosition = 0; doorPosition < 100; doorPosition++)
-            assertEquals(!opened.contains(doorPosition+1),doorsFlipper.isClosed(doorPosition));
+        for (int doorPosition = 1; doorPosition <= 100; doorPosition++)
+            assertEquals(!opened.contains(doorPosition),doorsFlipper.isClosed(doorPosition));
     }
 }
